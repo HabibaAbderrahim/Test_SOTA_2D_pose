@@ -1,0 +1,12 @@
+--------------------------
+CONFIGS AND WEIGHTS
+--------------------------
+mim download mmpose --config yoloxpose_s_8xb32-300e_coco-640 --dest .
+---------------------------
+TEST 2D HUMAN POSE ESTIMATION: YOLOX
+---------------------------
+python demo/image_demo.py tests/data/person.jpg yoloxpose_s_8xb32-300e_coco-640.py yoloxpose_s_8xb32-300e_coco-640-56c79c1f_20230829.pth  --out-file vis_results_person_yolo.jpg --device cpu 
+---------------------------
+TEST 3D HUMAN POSE ESTIMATION USING YOLOX FOR 2D KEYPOINTS DETECTION :2D TO 3D LIFTING !
+---------------------------
+python demo/inferencer_demo.py tests/data/personew.jpg --pose2d yoloxpose_s_8xb32-300e_coco-640.py --pose2d-weights yoloxpose_s_8xb32-300e_coco-640-56c79c1f_20230829.pth --pose3d human3d --vis-out-dir vis_results/human3d/new_yolox_2.jpg --device cpu
